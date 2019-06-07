@@ -1,7 +1,8 @@
 import React from 'react';
 import LandingPage from '../Routes/LandingPage'
+import LoginPage from '../Routes/LoginPage'
 import Nav from './Nav'
-import { Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
@@ -11,7 +12,16 @@ class App extends React.Component {
           <Nav />
         </header>
         <main className='app-main'>
-          <LandingPage />
+          <Switch>
+              <Route
+                exact path={'/'}
+                component={LandingPage}
+              />
+              <Route
+                path={'/login'}
+                component={LoginPage}
+              />
+          </Switch>
         </main>
       </div>
     );
