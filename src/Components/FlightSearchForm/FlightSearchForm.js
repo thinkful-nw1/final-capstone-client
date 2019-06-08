@@ -1,4 +1,5 @@
 import React from 'react'
+import './FlightSearchForm.css'
 
 export default class FlightSearchForm extends React.Component{
     render() {
@@ -29,6 +30,7 @@ export default class FlightSearchForm extends React.Component{
                 </li>
               </ul>
             </form>
+            <button type="submit">Search</button>
           </div> 
         )
     }

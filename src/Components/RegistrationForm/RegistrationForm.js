@@ -1,4 +1,5 @@
 import React from 'react'
+import './RegistrationForm.css'
 
 export default class RegistrationForm extends React.Component {
     render() {
@@ -17,7 +18,7 @@ export default class RegistrationForm extends React.Component {
                         <input type="password" name='password' id='password' />
                     </div>
                 <button type='submit'>Join</button>
-                </form>
+            </form>
         )
     }
 }

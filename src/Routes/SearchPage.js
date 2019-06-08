@@ -1,5 +1,5 @@
 import React from 'react'
-import FlightSearchForm from '../Components/FlightSearchForm'
+import FlightSearchForm from '../Components/FlightSearchForm/FlightSearchForm'
 import FeedCard from '../Components/FeedCard'
 
 export default class SearchPage extends React.Component{
