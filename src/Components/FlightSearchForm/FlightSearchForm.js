@@ -4,33 +4,18 @@ import './FlightSearchForm.css'
 export default class FlightSearchForm extends React.Component{
     render() {
         return(
-            <div class="card-flight-form-card">
+          <div class="flight-form-card">
             <form class="flight-searchform">
-              <ul class="flight-searchform-airports">
-                <li>
-                    <input type="text" name="flight-origin"
-                    placeholder="Bos"/>
-                </li>
-                <li class="flight-form-swapper">
-                  <img src='/' alt="swap-arrows"/>
-                </li>
-                <li>
-                    <input type="text" name="flight-destination"
+              <input type="text" name="flight-origin"
+                    placeholder="From"/>
+              <input type="text" name="flight-destination"
                     placeholder="To"/>
-                </li>
-              </ul>
-               <ul class="flight-searchform-dates">
-                <li>
-                    <input type="text" name="flight-depart"
+              <input type="text" name="flight-depart"
                     placeholder="Today"/>
-                </li>
-                <li>
-                    <input type="text" name="flight-return"
+              <input type="text" name="flight-return"
                     placeholder="Tomorrow"/>
-                </li>
-              </ul>
-            </form>
-            <button type="submit">Search</button>
+              <button type="submit">Search</button>
+            </form>     
           </div> 
         )
     }

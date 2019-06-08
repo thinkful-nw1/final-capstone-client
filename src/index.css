@@ -1,6 +1,8 @@
+
+
 body {
   margin: 0;
-  font-family: "Open Sans"; 
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
@@ -10,8 +12,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Roboto', sans-serif;
 }
 
 * {
