@@ -1,4 +1,5 @@
 import React from 'react'
+import RegistrationForm from '../Components/RegistrationForm'
 
 export default class LandingPage extends React.Component {
     render() {
@@ -15,21 +16,7 @@ export default class LandingPage extends React.Component {
                 <header>
                     <h3>Sign Up Now</h3>
                 </header>
-                <form class='signup-form'>
-                    <div class="form-field">
-                        <label for="username" >Username</label>
-                        <input type="text" name='username' id='username' />
-                    </div>
-                    <div class="form-field">
-                        <label for="email">Email</label>
-                        <input type="email" name='email'/>
-                    </div>
-                    <div class="form-field">
-                        <label for="password">Password</label>
-                        <input type="password" name='password' id='password' />
-                    </div>
-                <button type='submit'>Join</button>
-                </form>
+                <RegistrationForm />
             </section>
             </main>
         )

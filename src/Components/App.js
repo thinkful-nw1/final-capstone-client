@@ -12,16 +12,18 @@ class App extends React.Component {
           <Nav />
         </header>
         <main className='app-main'>
-          <Switch>
-              <Route
-                exact path={'/'}
-                component={LandingPage}
-              />
-              <Route
-                path={'/login'}
-                component={LoginPage}
-              />
-          </Switch>
+          <BrowserRouter>
+            <Switch>
+                <Route
+                  exact path={'/'}
+                  component={LandingPage}
+                />
+                <Route
+                  path={'/login'}
+                  component={LoginPage}
+                />
+            </Switch>
+          </BrowserRouter>
         </main>
       </div>
     );
