@@ -3,6 +3,7 @@ import LandingPage from '../Routes/LandingPage'
 import LoginPage from '../Routes/LoginPage'
 import Nav from './Nav'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import SearchPage from '../Routes/SearchPage';
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,10 @@ class App extends React.Component {
                 <Route
                   path={'/login'}
                   component={LoginPage}
+                />
+                <Route
+                  path={'/search'}
+                  component={SearchPage}
                 />
             </Switch>
           </BrowserRouter>

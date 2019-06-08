@@ -7,7 +7,7 @@ export default class Nav extends React.Component {
                 <span className="nav-logo">
                     <a href="/"><img src="/" alt="TravelAppLogo"/> </a>
                 </span>
-                <span><a href="/">Login</a></span>
+                <span><a href="/login">Login</a></span>
             </nav>
         );
     }
