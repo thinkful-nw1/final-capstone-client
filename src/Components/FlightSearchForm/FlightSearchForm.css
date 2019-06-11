@@ -1,41 +1,68 @@
-
 .flight-form-card {
 	width: 90%;
-		padding: 30px;
-		background: #FFFFFF;
-		margin: 50px auto;
-		box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		border-radius: 4px; 
-  }
-  
-  ul{
-	list-style:none; 
-  }
-  
-  form {
-	display: flex; 
-	flex-flow: row wrap; 
-	align-items: center; 
-  }
-  
-  input {
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 4px;
+}
+
+ul {
+	list-style: none;
+}
+
+form {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+input {
 	vertical-align: middle;
-	font-size: 14px; 
+	font-size: 14px;
 	margin: 5px 10px 5px 0;
 	padding: 10px;
 	background-color: #fff;
-	border: 1px solid #dadce0; 
-	border-radius: 4px; 
-  }
-  
-  button {
-		border-radius: 20px; 
-		box-shadow: 0px 2px 2px 0px grey;
-		background-color: grey;
-		border: 1px solid grey;
-		color: #FFFFFF; 
-		font-size: 14px;
-		padding: 10px 18px;
-		text-decoration: none;
-		text-transform: uppercase;
-	}
+	border: 1px solid #dadce0;
+	border-radius: 4px;
+}
+
+.input-container {
+	position: relative;
+}
+
+.search-box {
+	position: absolute;
+	background-color: white;
+	width: 100%;
+	font-size: 14px;
+	padding: 0;
+	margin: 5px 0;
+}
+
+.hide-box {
+	display: none;
+}
+
+.airport {
+	padding: 5px 0 0;
+	border-bottom: 1px solid #f1f1f1;
+	cursor: pointer;
+}
+
+.airport:hover,
+.airport:focus {
+	background: #f1f1f1;
+}
+
+button {
+	border-radius: 20px;
+	box-shadow: 0px 2px 2px 0px grey;
+	background-color: grey;
+	border: 1px solid grey;
+	color: #FFFFFF;
+	font-size: 14px;
+	padding: 10px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
