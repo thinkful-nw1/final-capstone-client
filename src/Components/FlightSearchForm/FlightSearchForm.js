@@ -14,6 +14,11 @@ export default class FlightSearchForm extends React.Component {
     };
   }
 
+  handleFormSubmit = e => {
+    e.preventDefault();
+    console.log(e.target.from_date.value);
+  };
+
   handleToInput = (e, toOrFrom) => {
     const inputValue = e.target.value;
     this.setState({
@@ -97,7 +102,7 @@ export default class FlightSearchForm extends React.Component {
     const { showToResults, showFromResults, airportSearch } = this.state;
     return (
       <div className="flight-form-card">
-        <form className="flight-search-form">
+        <form className="flight-search-form" onSubmit={this.handleFormSubmit}>
           <div className="input-container">
             <input
               type="text"
@@ -105,6 +110,7 @@ export default class FlightSearchForm extends React.Component {
               placeholder="From"
               onChange={e => this.handleFromInput(e, 'from')}
               ref={input => (this.from = input)}
+              required
             />
             <ul className={showFromResults ? 'search-box' : 'hide-box'}>
               {airportSearch.map(this.renderList)}
@@ -117,19 +123,21 @@ export default class FlightSearchForm extends React.Component {
               placeholder="To"
               onChange={e => this.handleToInput(e)}
               ref={input => (this.to = input)}
+              required
             />
             <ul className={showToResults ? 'search-box' : 'hide-box'}>
               {airportSearch.map(this.renderList)}
             </ul>
           </div>
 
-          <input type="date" name="flight-depart" />
-          <input type="date" name="flight-return" />
+          <input type="date" name="from_date" required />
+          <input type="date" name="to_date" required />
           <input
             type="number"
             name="passengers"
             min="1"
             placeholder="Passengers"
+            required
           />
           <button type="submit">Search</button>
         </form>
