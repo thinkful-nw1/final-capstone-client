@@ -1,11 +1,37 @@
 import React from 'react';
 import './LoginForm.css';
+import AuthApiService from '../../services/auth-api-service'
 
 export default class LoginForm extends React.Component {
+  static defaultProps = {
+    onLoginSuccess: () => {}
+  }
+
+  state = { error: null }
+
+  handleSubmitJwtAuth = ev => {
+    ev.preventDefault()
+    this.setState({ error: null })
+    const { username, password } = ev.target
+  
+    AuthApiService.postLogin({
+      username: username.value, 
+      password: password.value, 
+    })
+      .then(res => {
+        username.value = ' '
+        password.value = ' '
+        TokenService.saveAuthToken(res.authToken)
+        this.props.onLoginSuccess()
+      })
+      .catch(res => {
+        this.setState({error: res.error})
+      })
+  }
   render() {
     return (
       <div className="login-form-card">
-        <form className="login-form">
+        <form className="login-form" onSubmit={this.handleSubmitJwtAuth}>
           <ul>
             <li>
               <label htmlFor="email">
@@ -38,3 +64,4 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+
