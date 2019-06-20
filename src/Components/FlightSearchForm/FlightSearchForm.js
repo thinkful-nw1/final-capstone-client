@@ -1,8 +1,12 @@
 import React from 'react';
 import airports from '../../services/airports';
+import FlightApiService from '../../services/flight-api-service';
 import './FlightSearchForm.css';
+import DataContext from '../../contexts/dataContext';
 
 export default class FlightSearchForm extends React.Component {
+  static contextType = DataContext;
+
   constructor() {
     super();
     this.state = {
@@ -10,13 +14,37 @@ export default class FlightSearchForm extends React.Component {
       fromInputValue: '',
       showToResults: false,
       showFromResults: false,
-      airportSearch: []
+      airportSearch: [],
+      error: null
     };
   }
 
   handleFormSubmit = e => {
     e.preventDefault();
-    console.log(e.target.from_date.value);
+    this.context.setToFlightError(null);
+    const {
+      to_destination,
+      from_destination,
+      to_date,
+      from_date,
+      passengers
+    } = e.target;
+
+    FlightApiService.searchFlight({
+      to_destination: to_destination.value,
+      from_destination: from_destination.value,
+      to_date: to_date.value,
+      from_date: from_date.value,
+      passengers: passengers.value
+    })
+      .then(data => {
+        this.context.setToFlight(data);
+        this.props.history.push('/choose-to');
+      })
+      .catch(error => {
+        this.setState({ error });
+        this.context.setToFlightError(error.error);
+      });
   };
 
   handleToInput = (e, toOrFrom) => {
@@ -102,11 +130,12 @@ export default class FlightSearchForm extends React.Component {
     const { showToResults, showFromResults, airportSearch } = this.state;
     return (
       <div className="flight-form-card">
+        <h2>{this.context.toFlightErrorMsg}</h2>
         <form className="flight-search-form" onSubmit={this.handleFormSubmit}>
-          <div className="input-container">
+          <div className="input-container" htmlFor="from_destination">
             <input
               type="text"
-              name="flight-to"
+              name="from_destination"
               placeholder="From"
               onChange={e => this.handleFromInput(e, 'from')}
               ref={input => (this.from = input)}
@@ -116,10 +145,10 @@ export default class FlightSearchForm extends React.Component {
               {airportSearch.map(this.renderList)}
             </ul>
           </div>
-          <div className="input-container">
+          <div className="input-container" htmlFor="to_destination">
             <input
               type="text"
-              name="flight-from"
+              name="to_destination"
               placeholder="To"
               onChange={e => this.handleToInput(e)}
               ref={input => (this.to = input)}

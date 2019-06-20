@@ -1,34 +1,30 @@
 import React from 'react';
-import LandingPage from '../Routes/LandingPage'
-import LoginPage from '../Routes/LoginPage'
-import Nav from './Nav'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import LandingPage from '../Routes/LandingPage';
+import LoginPage from '../Routes/LoginPage';
+import Nav from './Nav';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SearchPage from '../Routes/SearchPage';
+import { DataProvider } from '../contexts/dataContext';
+import ChooseFlightPage from '../Routes/ChooseFlightPage';
 
 class App extends React.Component {
   render() {
     return (
-      <div className='app'>
-        <header className='app-header'>
+      <div className="app">
+        <header className="app-header">
           <Nav />
         </header>
-        <main className='app-main'>
-          <BrowserRouter>
-            <Switch>
-                <Route
-                  exact path={'/'}
-                  component={LandingPage}
-                />
-                <Route
-                  path={'/login'}
-                  component={LoginPage}
-                />
-                <Route
-                  path={'/search'}
-                  component={SearchPage}
-                />
-            </Switch>
-          </BrowserRouter>
+        <main className="app-main">
+          <DataProvider>
+            <BrowserRouter>
+              <Switch>
+                <Route exact path={'/'} component={LandingPage} />
+                <Route path={'/login'} component={LoginPage} />
+                <Route path={'/search'} component={SearchPage} />
+                <Route path={'/choose-to'} component={ChooseFlightPage} />
+              </Switch>
+            </BrowserRouter>
+          </DataProvider>
         </main>
       </div>
     );

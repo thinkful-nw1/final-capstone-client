@@ -7,7 +7,7 @@ export default class SearchPage extends React.Component {
     return (
       <main role="main">
         <section className="form-section">
-          <FlightSearchForm />
+          <FlightSearchForm history={this.props.history} />
         </section>
         <section className="feed-section">
           <FeedCard />
