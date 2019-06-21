@@ -13,12 +13,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <header className="app-header">
-          <Nav />
-        </header>
         <main className="app-main">
           <DataProvider>
             <BrowserRouter>
+              <header className="app-header">
+                <Nav />
+              </header>
               <Switch>
                 <Route exact path={'/'} component={LandingPage} />
                 <PublicOnlyRoute

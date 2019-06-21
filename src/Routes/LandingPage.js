@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DataContext from '../contexts/dataContext';
 
 export default class LandingPage extends React.Component {
+  static contextType = DataContext;
   render() {
     return (
       <main role="main">
@@ -15,7 +17,11 @@ export default class LandingPage extends React.Component {
         </section>
         <section className="card-signup-form">
           <header>
-            <Link to="/register">Sign Up Now</Link>
+            {this.context.isAuthorized ? (
+              ''
+            ) : (
+              <Link to="/register">Sign Up Now</Link>
+            )}
           </header>
         </section>
       </main>
