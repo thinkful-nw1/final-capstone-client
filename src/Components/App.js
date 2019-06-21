@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SearchPage from '../Routes/SearchPage';
 import { DataProvider } from '../contexts/dataContext';
 import ChooseFlightPage from '../Routes/ChooseFlightPage';
+import PublicOnlyRoute from './Utils/PublicOnlyRoute';
+import RegistrationPage from '../Routes/RegistrationPage';
 
 class App extends React.Component {
   render() {
@@ -19,9 +21,13 @@ class App extends React.Component {
             <BrowserRouter>
               <Switch>
                 <Route exact path={'/'} component={LandingPage} />
-                <Route path={'/login'} component={LoginPage} />
-                <Route path={'/search'} component={SearchPage} />
-                <Route path={'/choose-to'} component={ChooseFlightPage} />
+                <PublicOnlyRoute
+                  path="/register"
+                  component={RegistrationPage}
+                />
+                <PublicOnlyRoute path="/login" component={LoginPage} />
+                <Route path="/search" component={SearchPage} />
+                <Route path="/choose-to" component={ChooseFlightPage} />
               </Switch>
             </BrowserRouter>
           </DataProvider>

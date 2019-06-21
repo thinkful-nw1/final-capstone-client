@@ -1,5 +1,5 @@
 import React from 'react';
-import RegistrationForm from '../Components/RegistrationForm/RegistrationForm';
+import { Link } from 'react-router-dom';
 
 export default class LandingPage extends React.Component {
   render() {
@@ -15,9 +15,8 @@ export default class LandingPage extends React.Component {
         </section>
         <section className="card-signup-form">
           <header>
-            <h3>Sign Up Now</h3>
+            <Link to="/register">Sign Up Now</Link>
           </header>
-          <RegistrationForm history={this.props.history} />
         </section>
       </main>
     );
