@@ -4,6 +4,7 @@ import DataContext from '../contexts/dataContext';
 
 export default class LandingPage extends React.Component {
   static contextType = DataContext;
+
   render() {
     return (
       <main role="main">
@@ -12,8 +13,10 @@ export default class LandingPage extends React.Component {
           <h2>[All your travel plans in one place]</h2>
         </header>
         <section>
-          [Plan your trip with one click! Enter your destination and get
-          flights, sights, and eats to add to your travel itinerary.]
+          Plan your trip with one click! Enter your destination and get flights,
+          sights, and eats to add to your travel itinerary.
+          <br />
+          <Link to="/search">Search Now</Link>
         </section>
         <section className="card-signup-form">
           <header>

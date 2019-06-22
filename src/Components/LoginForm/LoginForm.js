@@ -9,10 +9,7 @@ export default class LoginForm extends React.Component {
   state = { error: null };
 
   handleLoginSuccess = () => {
-    console.log('success');
-    console.log(TokenService.hasAuthToken());
     this.context.toggleAuthorized(TokenService.hasAuthToken());
-    console.log(this.context.isAuthorized);
     this.props.history.push('/');
   };
 

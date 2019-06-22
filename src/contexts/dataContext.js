@@ -16,7 +16,7 @@ export class DataProvider extends React.Component {
   state = {
     toFlightData: [],
     toFlightErrorMsg: null,
-    isAuthorized: TokenService.hasAuthToken
+    isAuthorized: TokenService.hasAuthToken()
   };
 
   setToFlight = toFlightData => {
