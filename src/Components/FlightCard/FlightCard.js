@@ -1,8 +1,17 @@
 import React from 'react';
 import './FlightCard.css';
+import DataContext from '../../contexts/dataContext';
 
 export default class FlightCard extends React.Component {
+  static contextType = DataContext;
+
   state = { flight_code: this.props.flight.flight_code };
+
+  handleSelectFlightClick = () => {
+    this.context.setSelectedFlight(this.props.flight);
+    this.props.history.push('/trip');
+  };
+
   render() {
     return (
       <div className="flight">
@@ -15,7 +24,7 @@ export default class FlightCard extends React.Component {
           }
         </span>
         <span>Price: {this.props.flight.price}</span>
-        <button>Select</button>
+        <button onClick={this.handleSelectFlightClick}>Select</button>
       </div>
     );
   }

@@ -8,6 +8,7 @@ import { DataProvider } from '../contexts/dataContext';
 import ChooseFlightPage from '../Routes/ChooseFlightPage';
 import PublicOnlyRoute from './Utils/PublicOnlyRoute';
 import RegistrationPage from '../Routes/RegistrationPage';
+import TripPage from '../Routes/TripPage';
 
 class App extends React.Component {
   render() {
@@ -28,6 +29,7 @@ class App extends React.Component {
                 <PublicOnlyRoute path="/login" component={LoginPage} />
                 <Route path="/search" component={SearchPage} />
                 <Route path="/choose-to" component={ChooseFlightPage} />
+                <Route path="/trip" component={TripPage} />
               </Switch>
             </BrowserRouter>
           </DataProvider>

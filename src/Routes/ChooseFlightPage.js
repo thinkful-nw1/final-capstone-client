@@ -10,14 +10,13 @@ export default class ChooseFlightPage extends React.Component {
       this.props.history.push('/search');
   };
 
-  componentDidMount = () => {
-    const flights = this.context.toFlightData;
-    console.log(flights);
-  };
-
   renderFlights = () => {
     return this.context.toFlightData.map(flight => (
-      <FlightCard key={flight.flight_code} flight={flight} />
+      <FlightCard
+        key={flight.flight_code}
+        flight={flight}
+        history={this.props.history}
+      />
     ));
   };
 

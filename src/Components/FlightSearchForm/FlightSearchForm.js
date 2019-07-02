@@ -39,6 +39,7 @@ export default class FlightSearchForm extends React.Component {
     })
       .then(data => {
         this.context.setToFlight(data);
+        this.context.setDestination(to_destination);
         this.props.history.push('/choose-to');
       })
       .catch(error => {
